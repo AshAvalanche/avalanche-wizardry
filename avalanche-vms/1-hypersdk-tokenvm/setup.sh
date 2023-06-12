@@ -13,3 +13,6 @@ curl -sSfL https://github.com/ava-labs/hypersdk/releases/download/v0.0.7/hypersd
 curl -sSfL https://github.com/ava-labs/hypersdk/releases/download/v0.0.7/hypersdk_0.0.7_checksums.txt | sha256sum -c --ignore-missing --quiet
 tar -xzf hypersdk_0.0.7_linux_amd64.tar.gz --wildcards 'token*' && chmod +x token*
 rm hypersdk_0.0.7_linux_amd64.tar.gz
+
+# Create directory for tokenvm profiles
+mkdir -p /tmp/tokenvm-e2e-profiles

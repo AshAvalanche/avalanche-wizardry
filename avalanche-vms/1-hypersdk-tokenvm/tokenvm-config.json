@@ -1,0 +1,18 @@
+{
+  "mempoolSize": 10000000,
+  "mempoolPayerSize": 10000000,
+  "mempoolExemptPayers": [
+    "token1rvzhmceq997zntgvravfagsks6w0ryud3rylh4cdvayry0dl97nsjzf3yp"
+  ],
+  "parallelism": 5,
+  "streamingBacklogSize": 10000000,
+  "gossipMaxSize": 32768,
+  "gossipProposerDepth": 1,
+  "buildProposerDiff": 1,
+  "verifyTimeout": 5,
+  "trackedPairs": ["*"],
+  "preferredBlocksPerSecond": 3,
+  "continuousProfilerDir": "/tmp/tokenvm-e2e-profiles/*",
+  "logLevel": "info",
+  "stateSyncServerDelay": 0
+}
