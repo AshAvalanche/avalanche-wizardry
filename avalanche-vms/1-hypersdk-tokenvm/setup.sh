@@ -14,5 +14,8 @@ curl -sSfL https://github.com/ava-labs/hypersdk/releases/download/v0.0.7/hypersd
 tar -xzf hypersdk_0.0.7_linux_amd64.tar.gz --wildcards 'token*' && chmod +x token*
 rm hypersdk_0.0.7_linux_amd64.tar.gz
 
+# Download jq
+curl -sSfL https://github.com/jqlang/jq/releases/download/jq-1.6/jq-linux64 -o jq && chmod +x jq
+
 # Create directory for tokenvm profiles
 mkdir -p /tmp/tokenvm-e2e-profiles
