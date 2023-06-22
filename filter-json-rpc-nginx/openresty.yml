@@ -1,0 +1,41 @@
+---
+- hosts: validator01
+  become: true
+  tasks:
+    - name: Import OpenResty GPG key
+      get_url:
+        url: https://openresty.org/package/pubkey.gpg
+        dest: /etc/apt/trusted.gpg.d/openresty.asc
+
+    - name: Add OpenResty APT repository
+      apt_repository:
+        repo: "deb http://openresty.org/package/ubuntu jammy main"
+        filename: openresty
+        state: present
+
+    - name: Install OpenResty
+      apt:
+        name: openresty
+        state: present
+
+    - name: Template Nginx OpenResty configuration
+      template:
+        src: nginx.conf.j2
+        dest: /etc/openresty/nginx.conf
+        owner: root
+        group: root
+        mode: 0644
+
+    - name: Download eth-jsonrpc-access.lua
+      get_url:
+        url: https://raw.githubusercontent.com/adetante/ethereum-nginx-proxy/master/eth-jsonrpc-access.lua
+        dest: /usr/local/openresty/nginx/eth-jsonrpc-access.lua
+        owner: root
+        group: root
+        mode: 0644
+
+    - name: Start OpenResty
+      service:
+        name: openresty
+        state: started
+        enabled: true
